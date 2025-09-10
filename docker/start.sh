@@ -11,6 +11,7 @@ chown www-data:www-data /app/storage/logs/laravel.log
 chmod 664 /app/storage/logs/laravel.log
 
 # Ensure database file exists and has correct permissions
+mkdir -p /app/database
 touch /app/database/database.sqlite
 chown www-data:www-data /app/database/database.sqlite
 chmod 664 /app/database/database.sqlite

@@ -20,7 +20,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Set default string length for MySQL compatibility
-        Schema::defaultStringLength(191);
+        // Only set default string length when using MySQL
+        try {
+            if (config('database.default') === 'mysql') {
+                Schema::defaultStringLength(191);
+            }
+        } catch (\Throwable $e) {
+            // In case database config isn't ready during boot, skip silently
+        }
     }
 } 
