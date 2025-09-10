@@ -1,0 +1,29 @@
+{
+  "_pdfme-04f4a44a.js": {
+    "file": "assets/pdfme-04f4a44a.js",
+    "isDynamicEntry": true
+  },
+  "_vendor-9ad04c6e.js": {
+    "file": "assets/vendor-9ad04c6e.js"
+  },
+  "resources/js/app.css": {
+    "file": "assets/app-8321e37d.css",
+    "src": "resources/js/app.css"
+  },
+  "resources/js/app.js": {
+    "css": [
+      "assets/app-8321e37d.css"
+    ],
+    "dynamicImports": [
+      "_pdfme-04f4a44a.js",
+      "_pdfme-04f4a44a.js"
+    ],
+    "file": "assets/app-ba0430d4.js",
+    "imports": [
+      "_vendor-9ad04c6e.js",
+      "_pdfme-04f4a44a.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  }
+}

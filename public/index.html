@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="PDF Template Designer and Generator - Create dynamic PDF templates with drag-and-drop field placement" />
+    <meta name="author" content="PDF Designer" />
+    
+    <title>PDF Template Designer</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- Preconnect to external fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Meta tags for PWA -->
+    <meta name="theme-color" content="#3b82f6" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="PDF Template Designer" />
+    <meta property="og:description" content="Create dynamic PDF templates with drag-and-drop field placement" />
+    <meta property="og:type" content="website" />
+    
+    @vite(['resources/js/app.js', 'resources/css/app.css'])
+  </head>
+  <body class="antialiased">
+    <div id="app"></div>
+    
+    <!-- Loading fallback -->
+    <noscript>
+      <div style="text-align: center; padding: 50px; font-family: system-ui, sans-serif;">
+        <h1>PDF Template Designer</h1>
+        <p>This application requires JavaScript to function properly.</p>
+        <p>Please enable JavaScript in your browser and refresh the page.</p>
+      </div>
+    </noscript>
+  </body>
+</html> 

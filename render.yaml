@@ -1,0 +1,41 @@
+services:
+  - type: web
+    name: pdf-generator
+    env: docker
+    plan: starter
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: APP_NAME
+        value: PDF Template Designer
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: APP_URL
+        fromService:
+          type: web
+          name: pdf-generator
+          property: host
+      - key: LOG_CHANNEL
+        value: stack
+      - key: LOG_LEVEL
+        value: error
+      - key: DB_CONNECTION
+        value: sqlite
+      - key: DB_DATABASE
+        value: /app/database/database.sqlite
+      - key: CACHE_DRIVER
+        value: file
+      - key: QUEUE_CONNECTION
+        value: sync
+      - key: SESSION_DRIVER
+        value: file
+      - key: SESSION_LIFETIME
+        value: 120
+      - key: FILESYSTEMS_PDF_DISK
+        value: local
+      - key: NODE_PATH
+        value: /usr/bin/node
+      - key: APP_KEY
+        generateValue: true
+    healthCheckPath: /api/health

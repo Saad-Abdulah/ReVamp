@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  body {
+    @apply bg-gray-50 text-gray-900 antialiased;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg shadow-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .btn-primary {
+    @apply btn bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+  }
+  
+  .btn-secondary {
+    @apply btn bg-white text-gray-700 border-gray-300 hover:bg-gray-50 focus:ring-primary-500;
+  }
+  
+  .btn-danger {
+    @apply btn bg-red-600 text-white hover:bg-red-700 focus:ring-red-500;
+  }
+  
+  .btn-sm {
+    @apply px-3 py-1.5 text-xs;
+  }
+  
+  .btn-lg {
+    @apply px-6 py-3 text-base;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden;
+  }
+  
+  .card-header {
+    @apply px-6 py-4 border-b border-gray-200 bg-gray-50;
+  }
+  
+  .card-body {
+    @apply p-6;
+  }
+  
+  .input {
+    @apply block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200;
+  }
+  
+  .input-error {
+    @apply border-red-300 focus:ring-red-500 focus:border-red-500;
+  }
+  
+  .label {
+    @apply block text-sm font-medium text-gray-700 mb-1;
+  }
+  
+  .error-text {
+    @apply text-sm text-red-600 mt-1;
+  }
+  
+  .loading-spinner {
+    @apply inline-block animate-spin rounded-full h-4 w-4 border-b-2 border-current;
+  }
+  
+  .drag-drop-area {
+    @apply border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-primary-400 transition-colors duration-200;
+  }
+  
+  .drag-drop-area.dragover {
+    @apply border-primary-500 bg-primary-50;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  .glass {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.8);
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* PDF Viewer Styles */
+.pdf-viewer {
+  @apply bg-white rounded-lg shadow-lg overflow-hidden;
+}
+
+.pdf-viewer canvas {
+  @apply w-full h-auto;
+}
+
+/* @pdfme/ui custom styles */
+.pdfme-ui-container {
+  @apply rounded-lg overflow-hidden shadow-lg;
+}
+
+.pdfme-ui-container .pdfme-ui-toolbar {
+  @apply bg-gray-100 border-b border-gray-200;
+}
+
+.pdfme-ui-container .pdfme-ui-field {
+  @apply border-2 border-primary-400 bg-primary-50;
+}
+
+.pdfme-ui-container .pdfme-ui-field:hover {
+  @apply border-primary-500 bg-primary-100;
+}
+
+.pdfme-ui-container .pdfme-ui-field.selected {
+  @apply border-primary-600 bg-primary-200;
+}
+
+/* Custom animations */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Upload progress styles */
+.upload-progress {
+  @apply relative overflow-hidden bg-gray-200 rounded-full;
+}
+
+.upload-progress-bar {
+  @apply h-2 bg-gradient-to-r from-primary-500 to-primary-600 transition-all duration-300 ease-out;
+}
+
+/* Notification styles */
+.notification {
+  @apply fixed top-4 right-4 max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden z-50;
+}
+
+.notification-success {
+  @apply border-l-4 border-green-400;
+}
+
+.notification-error {
+  @apply border-l-4 border-red-400;
+}
+
+.notification-warning {
+  @apply border-l-4 border-yellow-400;
+}
+
+.notification-info {
+  @apply border-l-4 border-blue-400;
+} 
