@@ -17,25 +17,65 @@ services:
           name: pdf-generator
           property: host
       - key: LOG_CHANNEL
-        value: stack
+        value: stderr
+      - key: LOG_DEPRECATIONS_CHANNEL
+        value: null
       - key: LOG_LEVEL
         value: error
       - key: DB_CONNECTION
         value: sqlite
       - key: DB_DATABASE
         value: /app/database/database.sqlite
+      - key: BROADCAST_DRIVER
+        value: log
       - key: CACHE_DRIVER
         value: file
+      - key: FILESYSTEM_DISK
+        value: local
       - key: QUEUE_CONNECTION
         value: sync
       - key: SESSION_DRIVER
         value: file
       - key: SESSION_LIFETIME
         value: 120
+      - key: MEMCACHED_HOST
+        value: 127.0.0.1
+      - key: REDIS_HOST
+        value: 127.0.0.1
+      - key: REDIS_PASSWORD
+        value: null
+      - key: REDIS_PORT
+        value: 6379
+      - key: MAIL_MAILER
+        value: log
+      - key: MAIL_HOST
+        value: smtp.gmail.com
+      - key: MAIL_PORT
+        value: 587
+      - key: MAIL_USERNAME
+        value: null
+      - key: MAIL_PASSWORD
+        value: null
+      - key: MAIL_ENCRYPTION
+        value: tls
+      - key: MAIL_FROM_ADDRESS
+        value: noreply@pdfgenerator.com
+      - key: MAIL_FROM_NAME
+        value: PDF Template Designer
+      - key: AWS_ACCESS_KEY_ID
+        value: ""
+      - key: AWS_SECRET_ACCESS_KEY
+        value: ""
+      - key: AWS_DEFAULT_REGION
+        value: us-east-1
+      - key: AWS_BUCKET
+        value: ""
       - key: FILESYSTEMS_PDF_DISK
         value: local
       - key: NODE_PATH
         value: /usr/bin/node
+      - key: SANCTUM_STATEFUL_DOMAINS
+        value: localhost,127.0.0.1
       - key: APP_KEY
-        generateValue: true
+        value: ""
     healthCheckPath: /api/health

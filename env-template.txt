@@ -1,0 +1,50 @@
+# Laravel PDF Generator Environment Configuration
+APP_NAME="PDF Template Designer"
+APP_ENV=production
+APP_KEY=
+APP_DEBUG=false
+APP_URL=https://your-app.onrender.com
+
+LOG_CHANNEL=stderr
+LOG_DEPRECATIONS_CHANNEL=null
+LOG_LEVEL=error
+
+DB_CONNECTION=sqlite
+DB_DATABASE=/app/database/database.sqlite
+
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file
+FILESYSTEM_DISK=local
+QUEUE_CONNECTION=sync
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
+
+MEMCACHED_HOST=127.0.0.1
+
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+
+MAIL_MAILER=log
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS="noreply@pdfgenerator.com"
+MAIL_FROM_NAME="${APP_NAME}"
+
+# AWS Configuration (Optional - for S3 storage)
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_DEFAULT_REGION=us-east-1
+AWS_BUCKET=
+
+# PDF Generation Configuration
+FILESYSTEMS_PDF_DISK=local
+
+# Node.js binary path (for PDF generation)
+NODE_PATH=/usr/bin/node
+
+# Sanctum Configuration
+SANCTUM_STATEFUL_DOMAINS=localhost,127.0.0.1

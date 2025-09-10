@@ -22,11 +22,20 @@ if [ ! -f "/app/.env" ]; then
     cp /app/.env.example /app/.env
 fi
 
-# Check if APP_KEY is set
-APP_KEY=$(grep -E "^APP_KEY=" /app/.env | cut -d '=' -f2)
-if [ -z "$APP_KEY" ] || [ "$APP_KEY" = "base64:GENERATE_NEW_KEY_HERE" ]; then
+# Ensure APP_KEY is set - generate if missing or empty
+if [ -z "$APP_KEY" ]; then
     echo "Generating new application key"
-    php /app/artisan key:generate --force
+    export APP_KEY=$(php /app/artisan key:generate --show --force)
+    echo "Generated APP_KEY: $APP_KEY"
+fi
+
+# Also set in .env file if it exists
+if [ -f "/app/.env" ]; then
+    if ! grep -q "^APP_KEY=" /app/.env; then
+        echo "APP_KEY=$APP_KEY" >> /app/.env
+    else
+        sed -i "s/^APP_KEY=.*/APP_KEY=$APP_KEY/" /app/.env
+    fi
 fi
 
 # Run migrations

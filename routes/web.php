@@ -13,7 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Named login route for middleware redirects
+Route::get('/login', function () {
+    return view('app');
+})->name('login');
+
 // Serve the Vue.js application for all non-API routes
-Route::get('/{any}', function () {
+Route::get('/{any?}', function () {
     return view('app');
 })->where('any', '^(?!api).*$');
