@@ -32,11 +32,10 @@ COPY . .
 RUN chown -R www-data:www-data /app
 
 # Install PHP dependencies
-RUN composer install --no-dev --optimize-autoloader --no-interaction
+RUN composer install --no-dev --prefer-dist --no-interaction --no-progress --no-scripts
 
 # Install Node.js dependencies and build assets
-RUN npm ci
-RUN npm run build
+RUN npm ci && npm run build
 
 # Create necessary directories
 RUN mkdir -p /app/storage/logs \
@@ -61,16 +60,7 @@ COPY docker/start.sh /start.sh
 # Make start script executable
 RUN chmod +x /start.sh
 
-# Generate Laravel application key if not exists
-RUN php artisan key:generate --show > /tmp/key.txt
-
-# Run database migrations
-RUN touch /app/database/database.sqlite
-RUN chown www-data:www-data /app/database/database.sqlite
-RUN php artisan migrate --force
-
-# Create symbolic link for storage
-RUN php artisan storage:link
+ # All artisan tasks moved to start.sh at runtime
 
 # Expose port 80
 EXPOSE 80
