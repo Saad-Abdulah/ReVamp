@@ -4,6 +4,12 @@
 chown -R www-data:www-data /app/storage /app/bootstrap/cache
 chmod -R 775 /app/storage /app/bootstrap/cache
 
+# Ensure logs directory and file exist with proper permissions
+mkdir -p /app/storage/logs
+touch /app/storage/logs/laravel.log
+chown www-data:www-data /app/storage/logs/laravel.log
+chmod 664 /app/storage/logs/laravel.log
+
 # Ensure database file exists and has correct permissions
 touch /app/database/database.sqlite
 chown www-data:www-data /app/database/database.sqlite
