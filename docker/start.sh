@@ -45,6 +45,7 @@ php /app/artisan migrate --force
 # Clear and cache config
 php /app/artisan config:clear
 php /app/artisan config:cache
+php /app/artisan view:clear
 
 # Create storage symlink
 php /app/artisan storage:link
