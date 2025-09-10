@@ -18,6 +18,8 @@ services:
           property: host
       - key: LOG_CHANNEL
         value: stderr
+      - key: BROADCAST_DRIVER
+        value: log
       - key: LOG_DEPRECATIONS_CHANNEL
         value: null
       - key: LOG_LEVEL
